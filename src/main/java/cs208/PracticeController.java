@@ -23,7 +23,19 @@ public class PracticeController
 
 
     // TODO: create a GET route with a path parameter
+    // http://localhost:8080/user/brolengumb/profile
+    //GET /user/BSUUsername/profile
+    @GetMapping ("/user/{BSUUsername}/profile")
+    public String user(
+            @PathVariable(name = "BSUUsername") String userName)
+    {
+        System.out.println("PracticeControler.user - START");
+        System.out.println("Parameters recieved in the body of the GET request:");
+        System.out.println("BSUUsername     = " + userName);
+        System.out.println("PracticeControler.user - END");
 
+        return "The username provided is: " + userName;
+    }
 
     // TODO: create a POST route with two form parameters
 
