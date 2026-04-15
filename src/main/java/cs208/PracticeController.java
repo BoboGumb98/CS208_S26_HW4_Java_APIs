@@ -14,7 +14,7 @@ public class PracticeController
             @RequestParam(name = "last_name") String lastName)
     {
         System.out.println("PracticeControler.displayName - START");
-        System.out.println("Parameters recieved in the body of the GET request:");
+        System.out.println("Parameters received in the body of the GET request:");
         System.out.println("first_name      = " + firstName);
         System.out.println("last_name      = " + lastName);
         System.out.println("PracticeControler.displayName - END");
@@ -30,7 +30,7 @@ public class PracticeController
             @PathVariable(name = "BSUUsername") String userName)
     {
         System.out.println("PracticeControler.user - START");
-        System.out.println("Parameters recieved in the body of the GET request:");
+        System.out.println("Parameters received in the body of the GET request:");
         System.out.println("BSUUsername     = " + userName);
         System.out.println("PracticeControler.user - END");
 
@@ -38,7 +38,21 @@ public class PracticeController
     }
 
     // TODO: create a POST route with two form parameters
+    // http://localhost:8080/create_user
+    // POST /create_user
+    @PostMapping ("/create_user")
+    public String createUser(
+            @RequestParam(name = "first_name") String firstName,
+            @RequestParam(name = "last_name") String lastName)
+    {
+        System.out.println("PracticeControler.create_user - START");
+        System.out.println("Parameters received in the body of the POST request:");
+        System.out.println("first_name     = " + firstName);
+        System.out.println("last_name     = " + lastName);
+        System.out.println("PracticeControler.create_user - END");
 
+        return "The username provided is: " + firstName + " " + lastName;
+    }
 
     // TODO: create a PATCH route
 
