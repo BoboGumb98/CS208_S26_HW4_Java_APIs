@@ -2,6 +2,8 @@ package cs208;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
 @RestController
 public class PracticeController
 {
@@ -76,7 +78,7 @@ public class PracticeController
     // http://localhost:8080/resource/{resourceId}
     // DELETE /resource/{resourceId}
     @DeleteMapping("/resource/{resourceId}")
-    public String DeleteResourceId (
+    public String deleteResourceId (
             @PathVariable(name = "resourceId") String id,
             @RequestParam(name = "authentication_token") String auth_token)
 
@@ -90,5 +92,23 @@ public class PracticeController
     }
 
     // TODO: create a GET API that returns a random resource
+    // http://localhost:8080/api/random_joke
+    // GET /api/random_joke
+    @GetMapping("/api/random_joke")
+    public String randomJoke ()
+    {
+        String[] jokes = {
+                "What did one hat say to the other?...  \"You wait here, i'll go on a head.\"",
+                "Why did the frog take the bus to work today?...  His car got TOAD away!",
+                "What is an astronaut's favorite part on a computer?...  The SPACE-BAR!",
+                "What do cows do on date night?... Go to the MOO-vies"
+        };
+        Random rand = new Random();
+        int jokeSelected = rand.nextInt(3);
+        System.out.println("PracticeControler.api.random_joke - START");
+        System.out.println("Joke index outputed: " + jokeSelected);
+        System.out.println("PracticeControler.api.random_joke - END");
 
+        return jokes[jokeSelected];
+    }
 }
