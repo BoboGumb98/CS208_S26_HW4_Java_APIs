@@ -55,7 +55,22 @@ public class PracticeController
     }
 
     // TODO: create a PATCH route
+    // http://localhost:8080/user/brolengumb/update_profile
+    // PATCH /user/{BSUUsername}/update_profile
+    @PatchMapping("/user/{BSUUsername}/update_profile")
+    public String update_profile(
+            @PathVariable(name = "BSUUsername") String userName,
+            @RequestParam(name = "theme") String theme,
+            @RequestParam(name = "language-code") String lang)
+    {
+        System.out.println("PracticeControler.update_profile - START");
+        System.out.println("Path variable received: " + userName);
+        System.out.println("Form parameter 'theme' received: " + theme);
+        System.out.println("Form parameter 'language-code' received: " + lang);
+        System.out.println("PracticeControler.update_profile - END");
 
+        return "Updated " + userName + "'s profile. Theme: " + theme + ", Language: " + lang;
+    }
 
     // TODO: create a DELETE route
 
