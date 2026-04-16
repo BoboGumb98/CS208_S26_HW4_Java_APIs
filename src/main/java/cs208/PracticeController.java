@@ -73,7 +73,21 @@ public class PracticeController
     }
 
     // TODO: create a DELETE route
+    // http://localhost:8080/resource/{resourceId}
+    // DELETE /resource/{resourceId}
+    @DeleteMapping("/resource/{resourceId}")
+    public String DeleteResourceId (
+            @PathVariable(name = "resourceId") String id,
+            @RequestParam(name = "authentication_token") String auth_token)
 
+    {
+        System.out.println("PracticeControler.resource - START");
+        System.out.println("ResourceId variable received: " + id);
+        System.out.println("Authentication_token variable received: " + auth_token);
+        System.out.println("PracticeControler.resource - END");
+
+        return "Student: " + id + " was deleted with authentication_token: " + auth_token;
+    }
 
     // TODO: create a GET API that returns a random resource
 
